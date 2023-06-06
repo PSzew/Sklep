@@ -1,0 +1,49 @@
+﻿<Window x:Class="Sklep.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Sklep"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="600" Width="920"
+        ResizeMode="NoResize" AllowsTransparency="True"
+        WindowStyle="None" Background="Transparent"
+        >
+    <Border Background="#0A2239" CornerRadius="30">
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="0.2*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="0.1*"/>
+                <RowDefinition Height="0.2*"/>
+                <RowDefinition Height="0.2*"/>
+                <RowDefinition Height="0.2*"/>
+                <RowDefinition Height="0.2*"/>
+                <RowDefinition Height="0.2*"/>
+            </Grid.RowDefinitions>
+            <Border Grid.Row="0" Grid.ColumnSpan="3" Background="Black" MouseDown="Drag" CornerRadius="30,30,0,0" Opacity="0.5"/>
+            <StackPanel Grid.Row="0" Grid.Column="2" Orientation="Horizontal" HorizontalAlignment="Right" Margin="0,10,20,0">
+                <Button Background="Transparent" Margin="0,0,20,0" BorderThickness="0" Click="Minimalize">
+                    <Image Source="images/appIcons/minimalize.png"/>
+                </Button>
+                <Button Background="Transparent" BorderThickness="0" Click="Close">
+                    <Image Source="images/appIcons/close.png"/>
+                </Button>
+            </StackPanel>
+            <Border Grid.RowSpan="5" Background="Black" Opacity="0.25" Grid.Row="1" CornerRadius="0,0,0,30"/>
+            <Button Content="Sklep" Click="mainpage" Background="Transparent" Grid.Row="1" Foreground="White" FontSize="40" FontWeight="UltraBold" BorderThickness="0"/>
+            <Button Content="Kategorie" Click="Category" Background="Transparent" Grid.Row="2" Foreground="White" FontSize="25" FontWeight="Bold" BorderThickness="0"/>
+            <Button Content="O nas" Background="Transparent" Grid.Row="3" Foreground="White" FontSize="25" FontWeight="Bold" BorderThickness="0"/>
+            <Button Grid.Row="4" Background="Transparent" BorderThickness="0" Click="Login">
+                <Image Source="images/appIcons/user.png"/>
+            </Button>
+            <Button Grid.Row="5" Background="Transparent" BorderThickness="0"  VerticalContentAlignment="Top" Click="cart">
+                <Image Source="images/appIcons/cart.png"/>
+            </Button>
+            <Border Grid.Row="5" Grid.Column="1" Grid.ColumnSpan="1" Background="Black" MouseDown="Drag" CornerRadius="0,0,30,0" Opacity="0.3" Height="35" VerticalAlignment="Bottom"/>
+            <Frame Grid.Row="1" Grid.RowSpan="5" Grid.Column="1" x:Name="mainFrame" Margin="0,0,0,35"/>
+        </Grid>
+    </Border>
+</Window>

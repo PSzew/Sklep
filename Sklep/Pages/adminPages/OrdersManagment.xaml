@@ -1,0 +1,21 @@
+﻿<Page x:Class="Sklep.Pages.adminPages.OrdersManagment"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Sklep.Pages.adminPages"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="OrdersManagment" Background="#176087">
+
+    <Grid>
+        <DataGrid x:Name="dGrid" Background="#176087" Foreground="Black">
+
+        </DataGrid>
+        <StackPanel VerticalAlignment="Bottom" HorizontalAlignment="Right" Orientation="Horizontal">
+            <Button Width="100" Height="50" Margin="0,0,10,0" Content="Usuń" Click="delete"/>
+            <Button Width="100" Height="50" Content="Szczegóły" Click="moreinfo"/>
+        </StackPanel>
+        <Frame x:Name="mainFrame"/>
+    </Grid>
+</Page>

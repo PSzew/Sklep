@@ -1,0 +1,35 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net6.0-windows</TargetFramework>
+    <Nullable>enable</Nullable>
+    <UseWPF>true</UseWPF>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="Images\appIcons\cart.png" />
+    <None Remove="Images\appIcons\close.png" />
+    <None Remove="Images\appIcons\delete.png" />
+    <None Remove="Images\appIcons\minimalize.png" />
+    <None Remove="Images\appIcons\user.png" />
+    <None Remove="Images\ProductImages\klawiatura1.jpg" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.Data.SqlClient" Version="5.1.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Images\appIcons\cart.png" />
+    <Resource Include="Images\appIcons\close.png" />
+    <Resource Include="Images\appIcons\delete.png" />
+    <Resource Include="Images\appIcons\minimalize.png" />
+    <Resource Include="Images\appIcons\user.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Images\ProductImages\" />
+  </ItemGroup>
+
+</Project>

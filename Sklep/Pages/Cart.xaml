@@ -1,0 +1,54 @@
+﻿<Page x:Class="Sklep.Pages.Cart"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Sklep.Pages"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="Cart" Background="#176087">
+
+    <Grid>
+        <ListView x:Name="ListView" Background="Transparent" ScrollViewer.VerticalScrollBarVisibility="Hidden" >
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <Grid Height="200" Width="750">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="0.1*"/>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="*"/>
+                        </Grid.RowDefinitions>
+                        <Image Source="{Binding Product_id.Image}" Height="150" Grid.RowSpan="2" Grid.Row="1"/>
+                        <Label Content="{Binding Product_id.Title}" Grid.Column="1" Grid.ColumnSpan="2" HorizontalAlignment="Center" Grid.Row="1" FontSize="40" Foreground="White"/>
+                        <ScrollViewer Grid.Column="1" Grid.Row="2" Grid.ColumnSpan="2" VerticalScrollBarVisibility="Auto">
+                            <TextBlock Text="{Binding Product_id.Description}" TextWrapping="Wrap" HorizontalAlignment="Center" Foreground="White" FontSize="20"/>
+                        </ScrollViewer>
+                        <StackPanel Grid.Row="1" Grid.Column="3" Grid.RowSpan="2" VerticalAlignment="Bottom">
+                            <Button Width="64" Height="64" Background="Transparent" BorderThickness="0" Click="delete" CommandParameter="{Binding .}">
+                                <Image Source="../Images/appIcons/delete.png" Width="64" Height="64"/>
+                            </Button>
+                            <Label Content="{Binding Product_id.Price}" Foreground="White" FontSize="30" HorizontalAlignment="Center" ContentStringFormat="{}{0:F2} Zł"/>
+                            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                                <Label Content="Ilosć:" Grid.Row="2" Grid.Column="2" Foreground="White" FontSize="15" VerticalAlignment="Center"/>
+                                <TextBox Width="100" Height="40" Text="{Binding Quantity}" VerticalContentAlignment="Center" Background="Transparent" Foreground="White" FontSize="20" PreviewTextInput="check" LostFocus="ifEmpty"/>
+                            </StackPanel>
+                        </StackPanel>
+                    </Grid>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+
+        <StackPanel Orientation="Horizontal" VerticalAlignment="Bottom" HorizontalAlignment="Right">
+            <Label Content="Cena całkowita: " Foreground="White" FontSize="30"/>
+            <Label Foreground="White" FontSize="30" x:Name="priceFull" ContentStringFormat="{}{0:F2} Zł"/>
+            <Button Content="Zamów" Width="150" Height="50"  Margin="50,0,50,0" Background="Transparent" BorderThickness="0" Foreground="White" FontSize="35" FontWeight="Bold" Click="Order"/>
+        </StackPanel>
+        <Frame x:Name="mainFrame"/>
+    </Grid>
+</Page>

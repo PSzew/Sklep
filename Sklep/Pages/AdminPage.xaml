@@ -1,0 +1,31 @@
+﻿<Page x:Class="Sklep.Pages.AdminPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Sklep.Pages"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="Admin" Background="#176087">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="0.4*"/>
+            <ColumnDefinition Width="0.05*"/>
+        </Grid.ColumnDefinitions>
+        <StackPanel VerticalAlignment="Center" Grid.Column="1">
+            <Button Content="Dodaj Produkt" Height="50" Background="Transparent" BorderThickness="0" Foreground="White" FontSize="25" FontWeight="Bold" Click="addProduct"/>
+            <Button Content="Edytuj Produkt" Height="50" Background="Transparent" BorderThickness="0" Foreground="White" FontSize="25" FontWeight="Bold" Margin="0,30,0,0" Click="edit"/>
+            <Button Content="Dodaj Kategorię" Height="50" Background="Transparent" BorderThickness="0" Foreground="White" FontSize="25" FontWeight="Bold" Margin="0,30,0,0"/>
+            <Button Content="Edytuj Kategorię" Height="50" Background="Transparent" BorderThickness="0" Foreground="White" FontSize="25" FontWeight="Bold" Margin="0,30,0,0"/>
+            <Button Content="Zamówienia" Height="50" Background="Transparent" BorderThickness="0" Foreground="White" FontSize="25" FontWeight="Bold" Margin="0,30,0,0" Click="Zamówienia"/>
+        </StackPanel>
+        <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center" x:Name="stackPanel" Width="300" Grid.Column="0">
+            <Image Source="../images/appIcons/user.png" Height="100" Width="100"/>
+            <Label Content="{Binding Name}" FontSize="40" Foreground="White" HorizontalContentAlignment="Center"/>
+            <Label Content="{Binding Surname}" FontSize="40" Foreground="White" HorizontalContentAlignment="Center"/>
+            <Button Content="Wyloguj się!" BorderThickness="0" Width="200" Height="75" Background="Transparent" Foreground="White" FontSize="30" FontWeight="Bold" Margin="0,50,0,0" Click="logout"/>
+        </StackPanel>
+        <Frame x:Name="mainFrame" Grid.ColumnSpan="3"/>
+    </Grid>
+</Page>
