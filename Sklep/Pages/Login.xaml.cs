@@ -86,5 +86,10 @@ namespace Sklep.Pages
                 pass.Focus();
             }
         }
+
+        private void registerDown(object sender, RoutedEventArgs e)
+        {
+            mainFrame.Content = new Register();
+        }
     }
 }

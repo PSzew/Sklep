@@ -41,6 +41,12 @@ namespace Sklep.Entity
             Login = login;
             Password = password;
         }
+        public User(int? id,string? login,string? email)
+        {
+            ID= id;
+            Login = login;
+            Email = email;
+        }
         public User()
         {
 

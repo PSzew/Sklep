@@ -10,6 +10,7 @@ using System.Data;
 using System.Collections.ObjectModel;
 using Sklep.Entity;
 using System.Diagnostics;
+using Sklep.Pages;
 
 namespace Sklep.Repsoitory
 {
@@ -48,6 +49,35 @@ namespace Sklep.Repsoitory
                 user = null;
             connection.Close();
             return user;
+        }
+        public int AddUser(User u)
+        {
+            SqlCommand Insert = new SqlCommand("INSERT INTO users VALUES (@name,@surname,@login,@email,@pass,0)",connection);
+            Insert.CommandType = CommandType.Text;
+            Insert.Parameters.AddWithValue("@name", u.Name);
+            Insert.Parameters.AddWithValue("@surname", u.Surname);
+            Insert.Parameters.AddWithValue("@login", u.Login);
+            Insert.Parameters.AddWithValue("@email", u.Email);
+            Insert.Parameters.AddWithValue("@pass", u.Password);
+            int result=Insert.ExecuteNonQuery();
+            return result;
+        }
+        public ObservableCollection<User> TryUsers() 
+        {
+            SqlCommand tryUsers = new SqlCommand("SELECT ID,Login,Email FROM users", connection);
+            connection.Open();
+            ObservableCollection<User> users = new ObservableCollection<User>(); 
+            using (SqlDataReader reader = tryUsers.ExecuteReader())
+            {
+                while (reader.Read())
+                {
+                    int? id = (int)reader["ID"];
+                    string? Login = reader["Login"].ToString(); 
+                    string? Email = reader["Email"].ToString(); 
+                    users.Add(new User(id,Login,Email));
+                }
+            }
+            return users;
         }
     }
 }
